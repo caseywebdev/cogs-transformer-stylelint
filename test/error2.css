@@ -1,0 +1,8 @@
+#foo {
+  font: Baz;
+   content: bar;
+}
+
+#bar {
+    foo: buz;
+}

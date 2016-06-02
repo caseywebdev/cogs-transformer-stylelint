@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "indentation": 2,
+    "block-no-empty": [true, {"severity": "warning"}]
+  }
+}

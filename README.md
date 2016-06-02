@@ -1,8 +1,9 @@
-# cogs-transformer-example
+# cogs-transformer-stylelint
 
-An example transformer for [Cogs].
+A [stylelint] transformer for [Cogs].
 
-[![Build Status]](http://travis-ci.org/caseywebdev/cogs-transformer-example)
+[![Build Status]](http://travis-ci.org/caseywebdev/cogs-transformer-stylelint)
 
+[stylelint]: https://github.com/stylelint/stylelint
 [Cogs]: https://github.com/caseywebdev/cogs
-[Build Status]: https://secure.travis-ci.org/caseywebdev/cogs-transformer-example.png
+[Build Status]: https://secure.travis-ci.org/caseywebdev/cogs-transformer-stylelint.png
