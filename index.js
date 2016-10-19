@@ -32,15 +32,13 @@ const getOptions = (file, options) =>
   );
 
 module.exports = ({file, options}) =>
-  getOptions(file, options).then(lint).then(({errored, results}) => {
-    if (!errored) return;
+  getOptions(file, options).then(lint).then(({results: {0: {warnings}}}) => {
+    const errors = _.reject(warnings, {severity: 'warning'});
+    if (!errors.length) return;
 
     throw new Error(
-      `${file.path} has stylelint error(s)\n` +
-      _.chain(results[0].warnings)
-        .reject({severity: 'warning'})
-        .map(({line, column, text}) => `  ${line}:${column} ${text}`)
-        .value()
-        .join('\n')
+      `${file.path} has stylelint error(s)` +
+      _.map(warnings, ({line, column, text}) => `\n  ${line}:${column} ${text}`)
+        .join('')
     );
   });

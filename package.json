@@ -1,6 +1,6 @@
 {
   "name": "cogs-transformer-stylelint",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Casey Foster <c@sey.me>",
   "description": "A stylelint transformer for Cogs.",
   "license": "MIT",
