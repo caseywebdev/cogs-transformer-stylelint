@@ -10,9 +10,8 @@ const getConfig = (file, options) =>
     if (config) return {config};
 
     return cosmiconfig('stylelint', {
-      cwd: path.dirname(file.path),
       rcExtensions: true
-    }).then(result => {
+    }).load(path.dirname(file.path)).then(result => {
       if (!result) throw NO_CONFIG_FOUND_ERROR;
 
       return {
@@ -32,19 +31,16 @@ const getOptions = (file, options) =>
     })
   );
 
-module.exports = (file, options, cb) => {
-  try {
-    getOptions(file, options).then(lint).then(({errored, results}) => {
-      if (!errored) return cb(null, {});
+module.exports = ({file, options}) =>
+  getOptions(file, options).then(lint).then(({errored, results}) => {
+    if (!errored) return;
 
-      throw new Error(
-        `${file.path} has stylelint error(s)\n` +
-        _.chain(results[0].warnings)
-          .reject({severity: 'warning'})
-          .map(({line, column, text}) => `  ${line}:${column} ${text}`)
-          .value()
-          .join('\n')
-      );
-    }).catch(cb);
-  } catch (er) { cb(er); }
-};
+    throw new Error(
+      `${file.path} has stylelint error(s)\n` +
+      _.chain(results[0].warnings)
+        .reject({severity: 'warning'})
+        .map(({line, column, text}) => `  ${line}:${column} ${text}`)
+        .value()
+        .join('\n')
+    );
+  });
