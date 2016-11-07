@@ -38,7 +38,7 @@ module.exports = ({file, options}) =>
 
     throw new Error(
       `${file.path} has stylelint error(s)` +
-      _.map(warnings, ({line, column, text}) => `\n  ${line}:${column} ${text}`)
+      _.map(errors, ({line, column, text}) => `\n  ${line}:${column} ${text}`)
         .join('')
     );
   });
