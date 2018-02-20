@@ -1,6 +1,6 @@
 {
   "name": "cogs-transformer-stylelint",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "author": "Casey Foster <c@sey.me>",
   "description": "A stylelint transformer for Cogs.",
   "license": "MIT",
@@ -9,15 +9,15 @@
     "url": "https://github.com/caseywebdev/cogs-transformer-stylelint"
   },
   "dependencies": {
-    "cosmiconfig": "2",
+    "cosmiconfig": "4",
     "underscore": "1.8.3"
   },
   "peerDependencies": {
-    "stylelint": "7 || 8"
+    "stylelint": "7 || 8 || 9"
   },
   "devDependencies": {
     "cogs-test-helper": "3",
-    "stylelint": "8"
+    "stylelint": "9"
   },
   "scripts": {
     "test": "cogs-test-helper test/test.js"
